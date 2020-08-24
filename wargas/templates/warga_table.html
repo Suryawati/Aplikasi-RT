@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html>
+
+<head>
+  {%load static%}
+	<!--<link  href="{#{% static "style.css"  rel="stylesheet" type="text/css" %}#}"/>-->
+  <title> {% block title %}WARGA{% endblock title %} </title>
+  <style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  height: 50px;
+  vertical-align: bottom;
+}
+</style>
+</head>
+<body>
+</head>
+
+
+
+
+
+<body>
+{% block content %}
+  <table cellspacing='0'>
+  <thead>
+    <tr>
+      <th>NAMA</th>
+      <th>NO KTP</th>
+      <th>NO KK</th>
+      <th>NO RUMAH</th>
+      <th>STATUS WARGA</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in lists %}
+      {#{% if patient.no_rumah == rumah.no_rumah %}#}
+    <tr>
+      <td> <a href="{% url 'warga_detail' patient.pk %}"> {{ patient.nama }} </a></td>
+      <td> {{ patient.noktp }}</td>
+      <td> {{ patient.nokk }}</td>
+      <td> {{ patient.no_rumah }}</td>
+      <td> {{ patient.get_statustinggal_display }}</td>
+    </tr>
+      {#{% endif %}#}
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
+</body>
+</html>

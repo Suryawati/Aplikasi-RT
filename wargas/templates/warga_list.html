@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}WARGA{% endblock title %}
+
+{% block content %}
+
+<form method='GET' action=".">
+    <!--I believe lowercase get also works-->
+    <input type="text" name="q" placeholder="ketik no ktp anda disini "/>
+    <input type="submit"  value="cari"/>
+</form>
+
+
+{% if query %}
+
+    {% if result %}
+    <ul>
+    {% for item in result %}
+        <li>{{ item.nama }}</li>
+        <li>{{ item.noktp }}</li>
+    {% endfor %}
+    </ul>
+
+
+    {% else %}
+       <p>Query returned no results.</p>
+       #SO is formatting "Query" in HTML for some reason. Nonetheless...
+    {% endif %}
+{% endif %}
+
+
+
+{% endblock content %}
+
+

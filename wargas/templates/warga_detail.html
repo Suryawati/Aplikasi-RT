@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-entry">
+  <h2>{{ object.nama }}</h2>
+    <p> {{ object.noktp }} | {{ object.nokk }}</p>
+    <p> <img class="bookcover" src="{{ object.ktp.url}}" width=500 style=”float:left;” /> </p>
+</div>
+
+{% endblock content %}

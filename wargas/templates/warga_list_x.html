@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}WARGA{% endblock title %}
+
+{% block content %}
+
+{% regroup object_list by no_rumah as wargas_list %}
+
+  {% for no_rumah in wargas_list %}
+    <div>
+        <h2>RUMAH NO <a href="{% url 'warga_table' no=no_rumah.grouper%}"> {{ no_rumah.grouper }}</a></h2>
+    </div>
+  {% endfor %}
+
+{% endblock content %}
+
+
